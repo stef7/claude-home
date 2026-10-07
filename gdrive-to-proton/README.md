@@ -76,7 +76,7 @@ safe to stop (Ctrl-C) and start again.
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `ON_CHANGE` | `keep-both` | What to do when a file already in Proton has changed in Google:<br>`keep-both`: upload the new version next to the old one as `name (1).ext`; nothing is ever lost.<br>`revision`: add a new version of the same Proton file; the old one stays in Proton's version history, which may only be kept for a limited time on your plan.<br>`skip`: never touch a file that's already in Proton. |
+| `ON_CHANGE` | `revision` | What to do when a file already in Proton has changed in Google:<br>`revision`: add a new version of the same Proton file. The old one goes to Proton's version history, which keeps up to 200 versions for up to 10 years on paid plans, but **only 10 versions or 7 days on the free plan**.<br>`keep-both`: upload the new version next to the old one as `name (1).ext`. Nothing is ever lost, on any plan.<br>`skip`: never touch a file that's already in Proton. |
 | `GDRIVE_ROOT` | `root` | The Google folder to copy (`root` = all of My Drive, or a folder ID from its URL) |
 | `PROTON_PARENT` | `/my-files` | The Proton folder to copy into |
 | `PROTON_FOLDER` | `Google Drive` | The folder created inside `PROTON_PARENT` |
@@ -84,7 +84,7 @@ safe to stop (Ctrl-C) and start again.
 | `PROTON_DRIVE_BIN` | `proton-drive` | The path to the Proton CLI |
 | `GDRIVE_TO_PROTON_HOME` | `~/.gdrive-to-proton` | Where the state, sign-in and staging files live |
 
-Example: `ON_CHANGE=revision node src/cli.js --run`
+Example: `ON_CHANGE=keep-both node src/cli.js --run`
 
 ## Things to know
 

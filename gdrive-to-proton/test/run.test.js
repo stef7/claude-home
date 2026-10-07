@@ -113,3 +113,7 @@ test('never passes a trash/replace strategy to Proton', () => {
     assert.throws(() => uploadArgs({ fileStrategy: 'replace', protonParent: '/my-files' }, '/x'));
     assert.throws(() => loadConfig({ PROTON_FOLDER: 'a/b' }));
 });
+
+test('defaults to revision mode', () => {
+    assert.equal(loadConfig({}).fileStrategy, 'create-new-revision');
+});
